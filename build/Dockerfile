@@ -14,6 +14,8 @@ RUN wget https://github.com/gavintan/openvpn-web/releases/latest/download/openvp
 RUN wget https://github.com/gavintan/openvpn-auth/releases/latest/download/openvpn-auth-$(uname -s)-$(uname -m) -O /usr/lib/openvpn/plugins/openvpn-auth
 RUN chmod +x /usr/local/bin/openvpn-web /usr/bin/docker-entrypoint.sh /usr/lib/openvpn/plugins/openvpn-auth
 
+RUN git clone  https://github.com/airqj/ovpn-downloader.git /data/ovpn-downloader
+
 VOLUME ["/data"]
 
 ENV OVPN_DATA=/data
@@ -34,7 +36,7 @@ ENV ADMIN_PASSWORD=admin
 ENV WEB_PORT=8833
 ENV ENV_UPDATE_CONFIG=true
 
-EXPOSE 1194/udp 8833
+EXPOSE 1194/udp 8833 5000
 
 USER root
 
