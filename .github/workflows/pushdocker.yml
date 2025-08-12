@@ -37,12 +37,12 @@ jobs:
 
       - name: Export Docker image
         run: |
-          docker save airqj/openvpn:${{ env.VERSION }} | gzip > airqj-openvpn-${{ env.VERSION }}.tar.gz
-          ls -lh airqj-openvpn-${{ env.VERSION }}.tar.gz
+          docker save airqj/openvpn:latest | gzip > airqj-openvpn-latest.tar.gz
+          ls -lh airqj-openvpn-latest.tar.gz
 
       - name: Upload Docker image artifact
         uses: actions/upload-artifact@v4
         with:
-          name: airqj-openvpn-docker-image-${{ env.VERSION }}
-          path: airqj-openvpn-${{ env.VERSION }}.tar.gz
+          name: airqj-openvpn-docker-image-latest
+          path: airqj-openvpn-latest.tar.gz
           retention-days: 30
