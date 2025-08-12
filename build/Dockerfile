@@ -14,7 +14,7 @@ RUN wget https://github.com/gavintan/openvpn-web/releases/latest/download/openvp
 RUN wget https://github.com/gavintan/openvpn-auth/releases/latest/download/openvpn-auth-$(uname -s)-$(uname -m) -O /usr/lib/openvpn/plugins/openvpn-auth
 RUN chmod +x /usr/local/bin/openvpn-web /usr/bin/docker-entrypoint.sh /usr/lib/openvpn/plugins/openvpn-auth
 
-RUN wget https://raw.githubusercontent.com/airqj/ovpn-downloader/refs/heads/main/main.py -O /data/ovpn-downloader/main.py
+RUN wget https://raw.githubusercontent.com/airqj/ovpn-downloader/refs/heads/main/main.py -O /usr/local/bin/main.py
 
 VOLUME ["/data"]
 
