@@ -258,6 +258,11 @@ getsubnet() {
 }
 
 genclient() {
+    # 自动加载环境变量，确保SERVER_NAME等变量可用
+    if [ -f "$OVPN_DATA/.vars" ]; then
+        source $OVPN_DATA/.vars
+    fi
+    
     if [ ! -f "$EASYRSA_PKI/private/$1.key" ]; then
         /usr/share/easy-rsa/easyrsa --batch build-client-full $1 nopass > /dev/null
     fi
